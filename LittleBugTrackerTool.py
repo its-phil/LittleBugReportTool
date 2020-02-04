@@ -3,17 +3,18 @@ import json
 import datetime
 
 if __name__ == '__main__':
-    inname = "doc/bugs.json"
-    if (len(sys.argv) < 2):
+    inname = "doc/"
+    if (len(sys.argv) == 2):
         inname = sys.argv[1]
 
-    outname = "br.html"
+    outname = inname+"br.html"
+    inname = inname+"bugs.json"
 
-    print("Reading input file '" + inname + "'...\n")
+    print("Reading input file '" + inname + "'...")
     with open(inname) as inf:
         data = json.load(inf)
 
-    print("Creating and opening log file '" + outname + "'...\n")
+    print("Creating and opening log file '" + outname + "'...")
     f = open(outname, "w")
     f.write("<!doctype html>\n")
     f.write("<html>\n")
@@ -120,7 +121,7 @@ if __name__ == '__main__':
 
     f.write("</table>\n")
 
-    f.write("<p>&copy; 2019 Philipp Klein | Generated: " +
+    f.write("<p>&copy; 2019-2020 Philipp Klein | Generated: " +
             str(datetime.datetime.now()) + "</p>")
 
     f.write("</body>\n")
